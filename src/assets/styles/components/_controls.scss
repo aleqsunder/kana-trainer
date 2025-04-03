@@ -1,0 +1,15 @@
+@use '../variables' as *;
+
+.controls-panel {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    width: 200px;
+  }
+}

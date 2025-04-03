@@ -1,0 +1,152 @@
+@use "sass:color";
+@use '../variables' as *;
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: $body-color-white-2;
+  color: $color-blue-dark;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > *:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+
+  &:hover {
+    background-color: $color-gray-light-2;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &--action {
+    background-color: $color-blue-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-blue-button-action;
+    }
+  }
+
+  &--small {
+    padding: $spacing-small 14px;
+    font-size: 14px;
+  }
+
+  &--expand {
+    width: 100%;
+
+    & > *:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+
+  &--accent,
+  &--danger {
+    font-weight: 600;
+  }
+
+  &#{&}--primary {
+    background: $body-color-white-2;
+    color: $color-blue-dark;
+    font-weight: 500;
+
+    &:hover {
+      background: $color-gray-light-2;
+    }
+  }
+
+  &#{&}--accent {
+    background: $color-gray-light-2;
+    color: $color-blue;
+    margin-left: auto;
+
+    &:hover {
+      background: color.adjust($color-gray-light-2, $lightness: -5%);
+    }
+  }
+
+  &#{&}--danger {
+    background: $color-red-light-2;
+    color: $color-red;
+
+    &:hover {
+      background: color.adjust($color-red-light-2, $lightness: -5%);
+    }
+  }
+
+  &--clear {
+    background: $color-white;
+    border: 1px solid $color-gray-light-2;
+    color: $color-red;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $color-red;
+    }
+  }
+}
+
+.group {
+  &-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: $spacing-medium;
+
+    &__label {
+      font-size: 16px;
+      color: $color-gray-label;
+      font-weight: 500;
+    }
+
+    &__subtext {
+      font-size: 13px;
+      color: $color-gray-subtext;
+      line-height: 1.4;
+      margin-bottom: $spacing-small;
+    }
+  }
+}
+
+@media (max-width: 824px) {
+  .btn {
+    &#{&}--accent {
+      margin-left: unset;
+
+      &:before {
+        content: '';
+        width: 100%;
+      }
+    }
+
+    &__delimeter {
+      display: block;
+      width: 100%;
+      margin-bottom: $spacing-small;
+    }
+  }
+}

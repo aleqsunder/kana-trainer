@@ -1,0 +1,99 @@
+@use '../variables' as *;
+
+.practice {
+  &-container {
+    display: flex;
+    gap: 40px;
+    padding-top: 80px;
+  }
+
+  &__main-content {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &-page {
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+}
+
+.answer-input {
+  width: 300px;
+  padding: $spacing-medium $spacing-large;
+  font-size: 1rem;
+  border: 2px solid $color-gray-light-2;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.carousel {
+  position: relative;
+  margin: 0 auto;
+
+  &__previous,
+  &__current {
+    padding: 40px;
+    min-height: 280px;
+    min-width: 300px;
+    background: $color-white;
+    border-radius: 16px;
+    box-shadow: 0 4px $spacing-medium $color-box-shadow;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__previous {
+    position: absolute;
+    font-size: 6rem;
+    color: $color-blue-dark;
+    opacity: var(--opacity, 0.6);
+    filter: blur(0.5px);
+    transform-origin: center center;
+    pointer-events: none;
+  }
+
+  &__current {
+    position: relative;
+    font-size: 6rem;
+    font-weight: 500;
+    color: $color-blue-dark;
+    z-index: 4;
+  }
+}
+
+.dual-script {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  &__divider {
+    color: $color-gray-label;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .practice {
+    &-container {
+      flex-direction: column;
+    }
+  }
+
+  .history-panel {
+    margin: 0 auto;
+  }
+}

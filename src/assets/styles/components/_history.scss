@@ -1,0 +1,86 @@
+@use '../variables' as *;
+
+.history-panel {
+  width: 300px;
+  right: 20px;
+  top: 20px;
+  background: $color-white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px $color-box-shadow;
+  padding: 20px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  z-index: 100;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-medium;
+    padding-bottom: 12px;
+  }
+
+  &__empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-large 0;
+    color: $color-gray-label;
+
+    &__title {
+      font-size: 32px;
+      margin-bottom: $spacing-small;
+      opacity: 0.6;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+
+  &__content {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      padding: $spacing-small 0;
+      margin-bottom: $spacing-small;
+      font-size: 12px;
+      font-weight: 500;
+      color: $color-gray-subtext;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  &__items {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    overflow: hidden;
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+      cursor: default;
+
+      .syllable {
+        font-weight: 500;
+        color: $color-blue-dark;
+        font-size: 15px;
+      }
+
+      .count {
+        font-weight: 600;
+        color: #48bb78;
+        background: #f0fff4;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+      }
+    }
+  }
+}

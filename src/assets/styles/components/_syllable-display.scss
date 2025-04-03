@@ -1,0 +1,10 @@
+@use '../variables' as *;
+
+.hiragana-character {
+  color: $color-blue;
+  margin-right: 4px;
+}
+
+.katakana-character {
+  color: $color-red;
+}

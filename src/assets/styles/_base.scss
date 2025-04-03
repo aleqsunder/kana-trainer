@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: $body-color-white;
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+
+  &__header {
+    & > *:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.select-container {
+  width: 250px;
+}
