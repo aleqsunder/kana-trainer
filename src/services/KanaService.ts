@@ -36,7 +36,9 @@ class KanaService {
         const kanaList: KanaKeyboardRaceEntry[] = []
         for (let i: number = 0; i < count; i++) {
             const kana: KanaEntry = this.generateRandomKana()
-            const displayedKana: string = Math.floor(Math.random() * 2) === 1 ? kana.hira : kana.kata
+            const displayedKana: string = KanaStore.script === 'both'
+                ? Math.floor(Math.random() * 2) === 1 ? kana.hira : kana.kata
+                : KanaStore.script === 'hiragana' ? kana.hira : kana.kata
 
             kanaList.push({
                 ...kana,
