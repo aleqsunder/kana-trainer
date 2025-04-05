@@ -27,6 +27,9 @@ body {
   min-height: 100vh;
 
   &__header {
+    display: flex;
+    margin-bottom: 2rem;
+
     & > *:not(:first-child) {
       margin-left: 1rem;
     }

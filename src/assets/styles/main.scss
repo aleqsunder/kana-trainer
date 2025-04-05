@@ -7,4 +7,8 @@
 @use './components/history';
 @use './components/practice';
 @use './components/inputs';
-@use './components/syllable-display';
+@use './components/kana-display';
+@use "./components/keyboard-race";
+@use "./components/end-game";
+@use "./components/model-selection";
+@use './components/stats';

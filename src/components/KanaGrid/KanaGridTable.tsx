@@ -1,10 +1,10 @@
 import {observer} from 'mobx-react-lite'
 import KanaStore from '@/stores/KanaStore'
-import {GridHeader} from '@/components/SyllableGrid/GridHeader'
-import {GridCell} from '@/components/SyllableGrid/GridCell'
-import {GroupButtons} from '@/components/SyllableGrid/GroupButtons'
+import {GridHeader} from '@/components/KanaGrid/GridHeader'
+import {GridCell} from '@/components/KanaGrid/GridCell'
+import {GroupButtons} from '@/components/KanaGrid/GroupButtons'
 
-const SyllableGridTable = observer(() => {
+const KanaGridTable = observer(() => {
     const {script, selectedColumns, toggleColumn} = KanaStore
 
     return (
@@ -12,7 +12,7 @@ const SyllableGridTable = observer(() => {
             <div className="group-selection">
                 <label className="group-selection__label">Быстрый выбор групп каны</label>
                 <div className="group-selection__subtext">
-                    Вы можете выбрать на нужные вам столбцы для изучения, <b>нажав</b> на них<br/>
+                    Вы можете выбрать нужные вам столбцы для изучения, <b>нажав</b> на них<br/>
                     Так же вы можете быстро выбрать нужную группу кан, нажав на соответствующие кнопки ниже<br/>
                     Годзюон — базовые каны, Дакутэн — звонкие, Хандакутэн — полузвонкие
                 </div>
@@ -46,4 +46,4 @@ const SyllableGridTable = observer(() => {
     )
 })
 
-export default SyllableGridTable
+export default KanaGridTable

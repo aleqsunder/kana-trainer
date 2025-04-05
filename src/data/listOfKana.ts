@@ -1,6 +1,6 @@
-import {SyllabaryEntry} from '@/types/kana'
+import {KanaEntry} from '@/types/kana'
 
-export const syllabary: SyllabaryEntry[] = [
+export const listOfKana: KanaEntry[] = [
     // Гласные
     {hira: 'あ', kata: 'ア', romaji: 'a', cyr: 'а', column: '', row: 'a'},
     {hira: 'い', kata: 'イ', romaji: 'i', cyr: 'и', column: '', row: 'i'},

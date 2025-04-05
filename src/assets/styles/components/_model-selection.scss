@@ -1,0 +1,67 @@
+@use "sass:color";
+@use '../variables' as *;
+
+.mode-selection {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+.mode-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: $body-color-white-2;
+  border-radius: 16px;
+  border: 1px solid $color-gray-light-2;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+
+  &--accent {
+    background: color.adjust($color-blue-primary, $lightness: 45%);
+    border-color: color.adjust($color-blue-primary, $lightness: 30%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-white;
+    border-radius: 12px;
+    box-shadow: 0 4px $spacing-medium $color-box-shadow;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $color-blue-dark;
+  }
+
+  &__description {
+    font-size: .95rem;
+    color: $color-gray-label;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__arrow {
+    font-size: 1.5rem;
+    color: $color-blue-primary;
+    padding-left: 1rem;
+  }
+}

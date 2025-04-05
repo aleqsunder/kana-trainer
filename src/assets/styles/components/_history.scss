@@ -1,15 +1,19 @@
 @use '../variables' as *;
 
 .history-panel {
-  width: 300px;
+  width: 100%;
   right: 20px;
   top: 20px;
   background: $color-white;
   border-radius: 12px;
-  box-shadow: 0 4px 20px $color-box-shadow;
+  box-shadow: 0 4px $spacing-medium $color-box-shadow;
   padding: 20px;
   font-family: 'Segoe UI', system-ui, sans-serif;
   z-index: 100;
+
+  &--half-size {
+    width: 50%;
+  }
 
   &__header {
     display: flex;
@@ -67,16 +71,10 @@
       transition: background 0.2s ease;
       cursor: default;
 
-      .syllable {
-        font-weight: 500;
-        color: $color-blue-dark;
-        font-size: 15px;
-      }
-
       .count {
         font-weight: 600;
-        color: #48bb78;
-        background: #f0fff4;
+        color: $color-green-secondary;
+        background: $color-white-cell;
         padding: 4px 10px;
         border-radius: 20px;
         font-size: 13px;

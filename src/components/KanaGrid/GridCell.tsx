@@ -1,5 +1,5 @@
-import {syllabary} from '@/data/syllabary'
-import {Syllable} from '@/components/SyllableGrid/Syllable'
+import {listOfKana} from '@/data/listOfKana'
+import {KanaDisplay} from '@/components/KanaGrid/KanaDisplay'
 
 interface GridCellProps {
     column: string
@@ -10,12 +10,12 @@ interface GridCellProps {
 }
 
 export const GridCell = ({column, vowel, selected, onClick, script}: GridCellProps) => {
-    const syllable = syllabary.find(s => s.column === column && s.row === vowel)
+    const kana = listOfKana.find(s => s.column === column && s.row === vowel)
     const className = `table-grid__cell ${selected ? 'column-selected' : ''}`
 
     return (
         <div className={className} onClick={() => onClick(column)}>
-            {syllable && <Syllable syllable={syllable} script={script}/>}
+            {kana && <KanaDisplay kana={kana} script={script}/>}
         </div>
     )
 }

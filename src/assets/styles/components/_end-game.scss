@@ -1,0 +1,88 @@
+@use '../variables' as *;
+
+.end-game {
+  background: $color-white;
+  width: 400px;
+
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px $spacing-medium $color-box-shadow;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+
+  &__title {
+    color: $color-blue-dark;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__card {
+    background: $body-color-white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.15s ease-out;
+    width: 160px;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &--accent {
+      background: linear-gradient(135deg, $color-blue-secondary, $color-green-primary);
+      color: $color-white;
+    }
+  }
+
+  &__value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+
+    &-part {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  &__progress {
+    margin-top: 1.5rem;
+    position: relative;
+
+    &-bar,
+    &-background {
+      height: 10px;
+      border-radius: 5px;
+      transition: width 0.15s ease-out;
+    }
+
+    &-bar {
+      position: relative;
+      background: linear-gradient(90deg, $color-blue-secondary, $color-green-primary);
+    }
+
+    &-background {
+      position: absolute;
+      background: $body-color-white-2;
+      width: 100%;
+    }
+
+    &-text {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: $color-gray-subtext;
+    }
+  }
+}

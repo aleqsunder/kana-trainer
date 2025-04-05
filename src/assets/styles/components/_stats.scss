@@ -1,0 +1,25 @@
+@use "../variables" as *;
+
+.session-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  color: $color-gray-label;
+
+  &__item {
+    &:first-child {
+      font-weight: 600;
+      color: $color-blue-dark;
+    }
+
+    &:not(:first-child) {
+      opacity: 0.8;
+    }
+  }
+
+  &__divider {
+    color: $color-gray;
+    margin: 0 2px 0 8px;
+  }
+}

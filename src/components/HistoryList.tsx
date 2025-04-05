@@ -1,7 +1,7 @@
 import {observer} from 'mobx-react-lite'
 import KanaStore from '../stores/KanaStore'
 import {AnimatePresence, motion} from 'framer-motion'
-import {syllabary} from '@/data/syllabary'
+import {listOfKana} from '@/data/listOfKana'
 import {useState} from 'react'
 import ExpandButton from '@/components/ExpandButton'
 
@@ -16,9 +16,24 @@ const HistoryList = observer(() => {
         KanaStore.history.clear()
     }
 
+    const enteredKana = [KanaStore.enteredKanaForAllTime]
+    if (KanaStore.enteredKanaPerSession !== KanaStore.enteredKanaForAllTime) {
+        enteredKana.unshift(KanaStore.enteredKanaPerSession)
+    }
+
     return (
         <div className="history-panel">
             <div className="history-panel__header">
+                <span className="session-stats">
+                    {enteredKana.map((count, index) => (
+                        <span key={index} className="session-stats__item">
+                            {count}
+                            {index < enteredKana.length - 1 && (
+                                <span className="session-stats__divider">/</span>
+                            )}
+                        </span>
+                    ))}
+                </span>
                 {history.length > 0 && (
                     <motion.button className="btn btn--clear" onClick={handleClearHistory}
                         whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
@@ -49,14 +64,14 @@ const HistoryList = observer(() => {
                             }}
                             transition={{duration: 0.3}}>
                             {history.map(([romaji, count]) => {
-                                const kanaSyllable = syllabary.find(s => s.romaji === romaji)
-                                if (!kanaSyllable) {
+                                const kana = listOfKana.find(s => s.romaji === romaji)
+                                if (!kana) {
                                     return <li key={romaji}>...</li>
                                 }
 
                                 const kanaArray = KanaStore.script === 'both'
-                                    ? [kanaSyllable.hira, kanaSyllable.kata]
-                                    : [KanaStore.script === 'hiragana' ? kanaSyllable.hira : kanaSyllable.kata]
+                                    ? [kana.hira, kana.kata]
+                                    : [KanaStore.script === 'hiragana' ? kana.hira : kana.kata]
 
                                 return (
                                     <motion.li key={romaji} className="history-panel__items__item"
@@ -64,7 +79,7 @@ const HistoryList = observer(() => {
                                         animate={{opacity: 1, y: 0}}
                                         exit={{opacity: 0, y: -20}}
                                         transition={{duration: 0.3}}>
-                                        <span className="syllable">{kanaArray.join(' / ')}</span>
+                                        <span className="kana">{kanaArray.join(' / ')}</span>
                                         <span className="count">{count}</span>
                                     </motion.li>
                                 )

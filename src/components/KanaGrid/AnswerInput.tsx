@@ -3,7 +3,7 @@ import React from 'react'
 
 interface AnswerInputProps {
     value: string
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 const AnswerInput = ({value, onChange}: AnswerInputProps) => (
