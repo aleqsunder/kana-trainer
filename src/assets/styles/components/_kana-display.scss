@@ -1,8 +1,37 @@
 @use '../variables' as *;
 
+.kana {
+  &-container {
+    position: relative;
+
+    .hiragana-character,
+    .katakana-character,
+    &:after {
+      position: absolute;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    .hiragana-character {
+      top: -9px;
+      left: -9px;
+    }
+
+    .katakana-character {
+      top: 9px;
+      left: 9px;
+    }
+
+    &:after {
+      content: '/';
+      color: $color-gray-subtext;
+      opacity: .3;
+      transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    }
+  }
+}
+
 .hiragana-character {
   color: $color-blue;
-  margin-right: 4px;
 }
 
 .katakana-character {

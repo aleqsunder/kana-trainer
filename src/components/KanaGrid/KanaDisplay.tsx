@@ -10,13 +10,19 @@ export const KanaDisplay = ({kana, script}: KanaDisplayProps) => {
         return null
     }
 
-    const showHiragana = script === 'hiragana' || script === 'both'
-    const showKatakana = script === 'katakana' || script === 'both'
+    if (script === 'both') {
+        return (
+            <div className="kana-container">
+                <span className="hiragana-character">{kana.hira}</span>
+                <span className="katakana-character">{kana.kata}</span>
+            </div>
+        )
+    }
 
     return (
-        <div className="kana-container">
-            {showHiragana && <span className="hiragana-character">{kana.hira}</span>}
-            {showKatakana && <span className="katakana-character">{kana.kata}</span>}
-        </div>
+        <>
+            {script === 'hiragana' && <span className="hiragana-character">{kana.hira}</span>}
+            {script === 'katakana' && <span className="katakana-character">{kana.kata}</span>}
+        </>
     )
 }

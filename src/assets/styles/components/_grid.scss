@@ -12,7 +12,7 @@
 
   &__headers {
     display: grid;
-    grid-template-columns: 40px repeat(15, minmax(40px, 1fr));
+    grid-template-columns: 40px repeat(15, minmax(20px, 1fr));
     background: $color-gray-table-header;
     border-bottom: 1px solid $color-gray-light-2;
   }
@@ -96,7 +96,7 @@
   }
 }
 
-@media (max-width: 824px) {
+@media (max-width: 712px) {
   .table-grid {
     grid-auto-flow: column;
     grid-template-rows: auto;
